@@ -1,0 +1,30 @@
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+$white: #ffffff;
+$black: #000000;
+$black-2: #060606;
+$black-transparent: rgba(52, 52, 52, 0.5);
+$gray: #444444;
+$gray-light: #C2C2C3;
+
+$green-1: #127B6D;
+$green-2: #148E7D;
+$green-3: #2AA090;
+$green-4: #29DFA8;
+
+$orange: #DC5918;
+
+$bg-graT-1: linear-gradient(180deg, #126459 11.72%, #159180 42.87%);
+$bg-graT-2: linear-gradient(180deg, #126459 11.72%, #159180 89.06%);
+//  transform to $bg-graT-2
+$transform: matrix(0, -1, -1, 0, 0, 0);
