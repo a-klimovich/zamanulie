@@ -6,6 +6,18 @@
   background-repeat: no-repeat;
 }
 
+@mixin clampLine($visibleLineNumber) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: $visibleLineNumber;
+  -webkit-box-orient: vertical;
+  line-clamp: $visibleLineNumber;
+  box-orient: vertical;
+}
+
 @mixin flex {
   display: flex;
 }

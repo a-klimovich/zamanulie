@@ -1,0 +1,24 @@
+.first {
+  @include bg-cover;
+  background-image: url('../assets/img/ferst-picture-sm.jpg');
+  height: 100vh;
+  min-height: 567px;
+
+  @include md {
+    background-image: url('../assets/img/ferst-picture-md.jpg');
+  }
+
+  @include lg {
+    background-image: url('../assets/img/ferst-picture-lg.jpg');
+  }
+
+  &::before {
+    content: '';
+    display: block;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+  }
+}

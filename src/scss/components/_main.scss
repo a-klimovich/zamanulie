@@ -1,1 +1,15 @@
-@import './button.scss';
+// sections
+@import './sections/first';
+@import './sections/about';
+@import './sections/book-shelf';
+
+// components
+@import 'button';
+@import 'book-card';
+@import 'pagination';
+
+// carousel
+@import 'carousel';
+
+// modal
+@import 'modal';
