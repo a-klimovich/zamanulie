@@ -1,5 +1,6 @@
 .btn {
   @include fontM;
+  display: inline-block;
   width: 245px;
   background: $green-2;
   border: 2px solid #ffffff;

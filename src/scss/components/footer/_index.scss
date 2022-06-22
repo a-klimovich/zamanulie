@@ -1,0 +1,151 @@
+.footer {
+  $this: &;
+  background-color: #2aa090;
+  padding: 30px 0 20px;
+
+  .content-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    #{$this}__logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+
+      .svg-logo {
+        width: 57px;
+        height: 67px;
+        margin-right: 6px;
+      }
+
+      .svg-logo-name {
+        width: 94px;
+        height: 35px;
+      }
+    }
+
+    #{$this}__social {
+      display: flex;
+      margin-bottom: 43px;
+
+      svg {
+        width: 36px;
+        height: 36px;
+        
+        path {
+          transition: ease-in-out 0.377s;
+        }
+      }
+
+      .social__item:hover {
+        svg path {
+          fill: $white;
+        }
+      }
+
+      .social__item:not(:last-child) {
+        margin-right: 12px;
+      }
+    }
+
+    @include md {
+      flex-direction: row;
+      justify-content: space-between;
+
+      #{$this}__logo {
+        margin-bottom: 0;
+
+        .svg-logo {
+          width: 92.55px;
+          height: 103.4px;
+          margin-right: 8px;
+        }
+
+        .svg-logo-name {
+          width: 146.29px;
+          height: 54.29px;
+        }
+      }
+
+      #{$this}__social {
+        margin-bottom: 0;
+
+        svg {
+          width: 56px;
+          height: 56px;
+        }
+        .social__item:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    @include rwd(1400) {
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      #{$this}__logo {
+        margin-right: 56px;
+        align-items: flex-start;
+
+        .svg-logo {
+          width: 137.84px;
+          height: 154px;
+
+          margin-right: 8px;
+        }
+
+        .svg-logo-name {
+          width: 217.88px;
+          height: 80.87px;
+          margin-top: 20px;
+        }
+      }
+
+      #{$this}__social {
+        margin-bottom: 0;
+        margin-top: 30px;
+
+        svg {
+          width: 62px;
+          height: 62px;
+        }
+
+        .social__item:not(:last-child) {
+          margin-right: 22px;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $white;
+    font-size: 8px;
+    line-height: 10px;
+
+    @include md {
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    @include lg {
+      align-items: flex-end;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .dezigner {
+      margin-bottom: 10px;
+
+      @include lg {
+        margin-bottom: 6px;
+      }
+    }
+  }
+}

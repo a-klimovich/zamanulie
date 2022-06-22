@@ -1,7 +1,11 @@
 // sections
+@import './footer/index';
+@import './header/index';
 @import './sections/first';
 @import './sections/about';
 @import './sections/book-shelf';
+@import './sections/music';
+@import './sections/notes';
 
 // components
 @import 'button';

@@ -1,0 +1,68 @@
+.music {
+  padding: 21px 0 45px;
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include md {
+      margin-bottom: 30px;
+    }
+    @include lg {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__subtitle {
+    display: inline-block;
+    margin-bottom: 8px;
+
+    @include md {
+      margin-bottom: 45px;
+    }
+    @include lg {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 11px;
+    margin-bottom: 24px;
+    
+    img {
+      height: 188px;
+      justify-self: center;
+    }
+    
+    @include md {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 10px;
+      margin-bottom: 40px;
+
+      img {
+        height: 216px;
+      }
+    }
+    @include lg {
+      column-gap: 47px;
+      img {
+        height: 475px;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    width: 245px;
+    height: 54px;
+
+    background: #060606;
+    border: 2px solid #e24d02;
+    border-radius: 10px;
+  }
+}
