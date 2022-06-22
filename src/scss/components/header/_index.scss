@@ -1,0 +1,270 @@
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  height: 45px;
+  transition: ease-in-out 0.258s;
+
+  @include lg {
+    height: 71px;
+  }
+  
+  @include rwd(1500) {
+    padding-left: 100px;
+  }
+
+  &.scroll {
+    .header__decor {
+      transform: translateY(-100%);
+    }
+
+    @include rwd(1400) {
+      transform: translateY(-100%);
+      padding-left: 0;
+      transition: none;
+      
+      .header__logo {
+        display: block;
+      }
+    }
+  }
+
+  &.out {
+    transform: translateY(-100%);
+
+    @include rwd(1400) {
+      transform: translateY(0);
+    }
+  }
+
+  &__bg {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: $bg-graT-2;
+    
+    @include lg {
+      background: $bg-graT-1;
+    }
+  }
+
+  a {
+    font-size: 18px;
+    line-height: 22px;
+    color: #f2f2f2;
+  }
+
+  &__decor {
+    position: absolute;
+    width: 219px;
+    height: 70px;
+    left: 0;
+    top: 0;
+    
+    @include md {
+      width: 336px;
+      height: 100px;
+      display: none;
+    }
+
+    @include rwd(880px) {
+      display: block;
+    }
+
+    @include lg {
+      width: 551.72px;
+      height: 162px;
+    }
+
+    @include rwd(1500) {
+      display: block;
+    }
+
+    .svg-decore-header, .svg-decore-header-sm {
+      width: 100%;
+      height: fit-content;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .svg-decore-header {
+      display: none;
+
+      @include lg {
+        display: block;
+      }
+    }
+
+    .svg-decore-header-sm {
+      display: block;
+
+      @include lg {
+        display: none;
+      }
+    }
+    
+
+    .logos-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+
+      .svg-logo {
+        width: 43.87px;
+        height: 49.01px;
+
+        @include md {
+          width: 51.03px;
+          height: 57.01px;
+        }
+
+        @include lg {
+          width: 89.2px;
+          height: 99.66px;
+        }
+      }
+      .svg-logo-name {
+        width: 69.34px;
+        height: 25.73px;
+
+        @include md {
+          width: 80.66px;
+          height: 29.94px;
+        }
+
+        @include lg {
+          width: 141px;
+          height: 52.33px;
+        }
+      }
+    }
+  }
+
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    @include lg {
+      justify-content: flex-start;
+    }
+  }
+
+  .burger {
+    display: block;
+    @include burger;
+
+    @include lg {
+      display: none;
+    }
+  }
+
+  &__logo {
+    display: none;
+    
+    @include rwd(1150) {
+      display: block;
+    }
+    @include rwd(1500) {
+      display: none;
+    }
+  }
+
+  .nav {
+    flex: 1 0 auto;
+    justify-content: flex-end;
+    margin-right: 34px;
+    display: none;
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      max-width: 320px;
+      background-color: $white;
+
+      &__list {
+        border-top: 2px solid #C4C4C4;
+        border-bottom: 5px solid #2AA090;
+      }
+      .nav__item {
+        height: 63px;
+        padding-left: 21px;
+        display: flex;
+        align-items: center;
+
+        a {
+          color: #525252;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 2px solid #C4C4C4;
+        }
+      }
+    }
+
+    @include lg {
+      display: flex;
+
+      &__list {
+        display: flex;
+        align-items: center;
+      }
+  
+      &__item {
+        @include mr(33px);
+        position: relative;
+  
+        &::after {
+          content: "";
+          display: block;
+          height: 3px;
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          transition: ease-in-out 0.372s;
+        }
+  
+        &:hover {
+          &::after {
+            bottom: -7px;
+            background: #29dfa8;
+          }
+        }
+      }
+    }
+  }
+
+  .lang {
+    display: flex;
+    align-items: center;
+
+    a {
+      font-size: 14px;
+      line-height: 17px;
+
+      &:hover {
+        color: #29dfa8;
+      }
+    }
+
+    &__item {
+      @include mr(18px);
+
+      &.current a {
+        color: #29dfa8;
+      }
+    }
+  }
+}

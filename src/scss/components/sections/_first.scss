@@ -1,24 +1,89 @@
 .first {
+  // tak nado)
+  .container--h-100 {
+    height: 100%;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    text-align: center;
+    padding-top: 50%;
+
+    @include md {
+      text-align: start;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 0;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 27px;
+    color: $white;
+    margin-bottom: 11px;
+    max-width: 350px;
+
+    @include md {
+      font-size: 32px;
+      line-height: 36px;
+    }
+
+    @include lg {
+      font-size: 68px;
+      line-height: 77px;
+      margin-bottom: 17px;
+      min-width: 619px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 23px;
+    max-width: 350px;
+
+    @include md {
+      font-size: 16px;
+      line-height: 18px;
+      
+    }
+
+    @include lg {
+      font-size: 28px;
+      line-height: 32px;
+      margin-bottom: 43px;
+      min-width: 430px;
+    }
+  }
+
+  &__btn {
+  }
+
   @include bg-cover;
-  background-image: url('../assets/img/ferst-picture-sm.jpg');
+  background-image: url("../assets/img/ferst-picture-sm.jpg");
   height: 100vh;
   min-height: 567px;
 
   @include md {
-    background-image: url('../assets/img/ferst-picture-md.jpg');
+    background-image: url("../assets/img/ferst-picture-md.jpg");
   }
 
   @include lg {
-    background-image: url('../assets/img/ferst-picture-lg.jpg');
+    background-image: url("../assets/img/ferst-picture-lg.jpg");
   }
 
   &::before {
-    content: '';
+    content: "";
     display: block;
   }
 
   &::after {
-    content: '';
+    content: "";
     display: block;
   }
 }

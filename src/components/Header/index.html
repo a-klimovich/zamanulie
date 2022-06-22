@@ -1,4 +1,41 @@
-<header>
-  <div class="container">
+<header class="header">
+  <div class="header__decor">
+    <div class="logos-wrapper">
+      @@include('../../assets/logo.svg')
+      @@include('../../assets/logo-name.svg')
+    </div>
+    @@include('../../assets/decore-header.svg')
+    @@include('../../assets/decor-header-sm.svg')
+  </div>
+  
+  <div class="header__bg">
+    <div class="container">
+      <div class="header-wrapper">
+        <button class="burger" aria-label="Открыть меню" aria-expanded="false"  data-burger>
+          <span class="burger__line"></span>
+        </button>
+
+        <div class="header__logo">
+          @@include('../../assets/logo-name.svg')
+        </div>
+    
+        <nav class="nav" title="header-nav">
+          <ul class="nav__list list-reset">
+            <li class="nav__item"><a href="#" class="nav__link">Главная</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">О Заманулье и авторе</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Книжная полка</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Музыка</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Блог</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
+          </ul>
+        </nav>
+    
+        <ul class="lang list-reset">
+          <li class="lang__item current"><a href="#">RU</a></li>
+          <li class="lang__item"><a href="#">EN</a></li>
+          <li class="lang__item"><a href="#">DE</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </header>
