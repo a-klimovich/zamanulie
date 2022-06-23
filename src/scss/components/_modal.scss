@@ -28,11 +28,45 @@
   &-container {
     width: 100%;
     height: 100%;
-    max-width: 85vw;
-    max-height: 75vh;
+    overflow-y: auto;
     background: #fff;
     position: relative;
-    padding: 20px 50px;
+    padding: 22px 61px;
+
+    @include lg {
+      max-width: 1277px;
+      max-height: 90vh;
+      overflow-y: hidden;
+    }
+  }
+
+  .modal-content__grid {
+    display: grid;
+    align-items: stretch;
+    justify-items: center;
+
+    .book-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      
+      &__text {
+        overflow-y: hidden;
+        max-height: calc(90vh - 200px);
+      }
+    }
+
+    .slider-current-book {
+      img {
+        max-height: calc(90vh - 40px);
+      }
+    }
+
+    @include lg {
+      grid-template-columns: 1fr 1.3fr;
+      column-gap: 40px;
+    }
   }
 
   &-close {

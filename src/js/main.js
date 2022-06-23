@@ -1,6 +1,14 @@
 (function () {
   $(document).ready(function () {
-    $(".your-class").slick({});
+    $("#userSlider").slick({
+      slidesToShow: 1,
+      adaptiveHeight: true,
+      dots: true,
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      arrows: false,
+    });
   });
 
   // HEADER
