@@ -1,0 +1,32 @@
+.section-title {
+  $this: &;
+  position: relative;
+  margin-bottom: 12px;
+  color: #127B6D;
+  
+  &::after {
+    content: '';
+    display: block;
+    background-color: #127B6D;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    bottom: -15px;
+    left: 0;
+  }
+
+  &--white {
+    color: $white;
+    &::after {
+      background-color: $white;
+    }
+  }
+
+  @include md {
+    margin-bottom: 25px;
+  }
+  
+  @include lg {
+    margin-bottom: 43px;
+  }
+}
