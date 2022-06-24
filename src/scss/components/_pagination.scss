@@ -1,8 +1,14 @@
 .pagination {
   display: flex;
   justify-content: center;
+  list-style: none;
+  margin-top: 30px;
 
-  a {
+  li {
+    margin-right: 6px;
+  }
+
+  button, a {
     font-family: 'Century Gothic';
     width: 39px;
     height: 39px;
@@ -13,6 +19,8 @@
     font-size: 20px;
     line-height: 25px;
     color: #FFFFFF;
+    background-color: transparent;
+    cursor: pointer;
 
     transition: background-color 0.3s;
     border: 2px solid #FFFFFF;
@@ -24,13 +32,16 @@
     }
   }
 
-  a.active {
-    color: #2AA090;
+  .slick-active {
     border-color: #FFFFFF;
     background-color: #FFFFFF;
+
+    button {
+      color: #2AA090;
+    }
   }
 
-  & a:hover:not(.active) {
+  & button:hover:not(.active), & a:hover:not(.active) {
     color: #2AA090;
     border-color: #FFFFFF;
     background-color: #FFFFFF;
@@ -43,6 +54,12 @@
     
       & path {
         fill: #FFFFFF;
+      }
+    }
+
+    &:hover {
+      svg path {
+        stroke: #2AA090;
       }
     }
   }
