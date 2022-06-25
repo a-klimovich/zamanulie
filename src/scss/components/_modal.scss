@@ -40,6 +40,19 @@
     }
   }
 
+  .only-mobile {
+    display: block;
+    @include lg {
+      display: none;
+    }
+  }
+  .only-desk {
+    display: none;
+    @include lg {
+      display: block;
+    }
+  }
+
   .modal-content__grid {
     display: grid;
     align-items: stretch;
@@ -50,21 +63,32 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
+      grid-row: 2;
       
       &__text {
         overflow-y: hidden;
         max-height: calc(90vh - 200px);
       }
+
+      @include lg {
+        grid-row: 1;
+      }
     }
 
     .slider-current-book {
+      grid-row: 1;
+      display: flex;
+      align-items: center;
+      max-width: 658px;
+
       img {
+        margin: 0 auto;
         max-height: calc(90vh - 40px);
       }
     }
 
     @include lg {
-      grid-template-columns: 1fr 1.3fr;
+      grid-template-columns: 1fr 1fr;
       column-gap: 40px;
     }
   }

@@ -12,6 +12,11 @@
       arrows: false,
     });
 
+    $("#currentBookSlider").slick({
+      slidesToShow: 1,
+      adaptiveHeight: true,
+    });
+
     // TODO: пагинацияоткрыть в модалке тотже контент
     $("#bookCarousel").slick({
       slidesToShow: 4,
