@@ -106,7 +106,7 @@
     justify-items: center;
 
     .thumbnail {
-      width: 64px;
+      max-width: 64px;
       height: 92px;
       cursor: pointer;
 
@@ -115,11 +115,11 @@
       }
 
       @include md {
-        width: 74px;
+        max-width: 74px;
         height: 106px;
       }
       @include lg {
-        width: 78px;
+        max-width: 78px;
         height: 111px;
       }
     }

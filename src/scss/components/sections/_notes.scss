@@ -1,9 +1,8 @@
 .notes {
   padding: 21px 0 51px;
   background: #C2C2C3;
-
+  position: relative;
   
-
   &__grid {
     display: grid;
     justify-items: center;
@@ -57,7 +56,7 @@
       }
 
       .btn.notes__btn {
-        transform: translateX(80%);
+        transform: translateX(100%);
       }
     }
   }

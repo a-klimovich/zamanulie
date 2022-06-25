@@ -17,7 +17,6 @@
       slidesToShow: 4,
       adaptiveHeight: true,
       dots: true,
-      // dotsClass: 'pagination',
       infinite: false,
       arrows: false,
       customPaging: function (slider, i) {

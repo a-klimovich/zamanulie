@@ -6,21 +6,27 @@
 <body class="page__body">
   <div class="main-wrapper">
     @@include('../components/Header/index.html')
-
+    
     <main class="main">
       <section class="first">
         <div class="container container--h-100">
           <div class="first__wrapper">
             <h1 class="first__title">Добро пожаловать в Заманулье</h1>
-
+            
             <p class="first__subtitle">
               Загадочное место в интернете,
               где живут самые разные проекты
             </p>
-
+            
             <button class="btn btn--default first__btn">В ПУТЕШЕСТВИЕ</button>
           </div>
         </div>
+        @@include('../assets/decore-bg.svg')
+        @@include('../components/DecoreSection/index.html', {
+          'color': 'white',
+          'revers': 'transform: scaleX(1);',
+          'side': 'right: 0'
+        })
       </section>
 
       <section class="about">
@@ -75,6 +81,11 @@
             </div>
           </div>
         </div>
+        @@include('../components/DecoreSection/index.html', {
+          'color': 'green',
+          'revers': 'transform: scaleX(-1);',
+          'side': 'left: 0'
+        })
       </section>
 
       <section class="book-shelf">
@@ -116,6 +127,11 @@
 
           <button class="btn btn--default book-shelf__btn">В ПУТЕШЕСТВИЕ</button>
         </div>
+        @@include('../components/DecoreSection/index.html', {
+          'color': 'white',
+          'revers': 'transform: scaleX(1);',
+          'side': 'right: 0'
+        })
       </section>
 
       <section class="music">
@@ -133,6 +149,11 @@
 
           <a class="music__link" href="https://www.thegussi.com">@@include('../assets/thegussi.svg')</a>
         </div>
+        @@include('../components/DecoreSection/index.html', {
+          'color': 'gray',
+          'revers': 'transform: scaleX(1);',
+          'side': 'right: 0'
+        })
       </section>
 
       <section class="notes">
@@ -149,6 +170,11 @@
             <a class="btn btn--default notes__btn" href="#">ЧИТАТЬ БЛОГ</a>
           </div>
         </div>
+        @@include('../components/DecoreSection/index.html', {
+          'color': 'green',
+          'revers': 'transform: scaleX(-1);',
+          'side': 'left: 0'
+        })
       </section>
     </main>
 
