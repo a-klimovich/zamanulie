@@ -32,13 +32,10 @@
     }
   }
 
-  .slick-active {
+  .pagination--slick-dot.active {
     border-color: #FFFFFF;
     background-color: #FFFFFF;
-
-    button {
-      color: #2AA090;
-    }
+    color: #2AA090;
   }
 
   & button:hover:not(.active), & a:hover:not(.active) {
