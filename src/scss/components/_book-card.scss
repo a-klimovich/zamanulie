@@ -6,12 +6,15 @@
   height: 494px;
   transition: all 0.45s;
   position: relative;
+  max-width: 300px;
+  margin: 0 auto;
 
   &.selected {
     background-color: #1b897a;
   }
 
   @include md {
+    max-width: fit-content;
     padding: 12px 14px 8px;
     height: 688px;
   }

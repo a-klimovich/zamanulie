@@ -12,9 +12,10 @@
       arrows: false,
     });
 
-    // TODO:
+    // TODO: пагинацияоткрыть в модалке тотже контент
     $("#bookCarousel").slick({
       slidesToShow: 4,
+      slidesToScroll: 4,
       adaptiveHeight: true,
       dots: true,
       infinite: false,
@@ -22,7 +23,32 @@
       customPaging: function (slider, i) {
         const $elem = $('.pagination');
         $elem.children().eq(-1).before(`<a data-current=${i} class="pagination--slick-dot">${i + 1}</a>`);
-      }
+      },
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 640,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     });
 
     $('.pagination--slick-dot').on('click', (e) => {
