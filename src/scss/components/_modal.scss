@@ -31,9 +31,15 @@
     overflow-y: auto;
     background: #fff;
     position: relative;
-    padding: 22px 61px;
-
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 5px;
+    text-align: center;
+    
     @include lg {
+      text-align: left;
+      padding: 22px 61px;
       max-width: 1277px;
       max-height: 90vh;
       overflow-y: hidden;
@@ -79,7 +85,57 @@
       grid-row: 1;
       display: flex;
       align-items: center;
-      max-width: 658px;
+      max-width: 300px;
+      
+      @include md {
+        max-width: 629px;
+      }
+
+      @include lg {
+        max-width: 658px;
+      }
+
+      .modal-slider__prev, .modal-slider__next {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        cursor: pointer;
+        margin: 0 10px;
+
+        transition: background-color 0.3s;
+        border: 2px solid #2AA090;
+
+        @include md {
+          display: flex;
+          width: 21px;
+          height: 20px;
+        }
+
+        @include lg {
+          min-width: 39px;
+          min-height: 39px;
+        }
+
+        svg {
+          width: 24px;
+          height: 18px;
+
+          path {
+            stroke: #2AA090;
+          }
+        
+          path {
+            fill: #FFFFFF;
+          }
+        }
+      }
+    
+      .modal-slider__next {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
 
       img {
         margin: 0 auto;
@@ -89,7 +145,7 @@
 
     @include lg {
       grid-template-columns: 1fr 1fr;
-      column-gap: 40px;
+      column-gap: 15px;
     }
   }
 

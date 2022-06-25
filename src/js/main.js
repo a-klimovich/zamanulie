@@ -1,5 +1,7 @@
 (function () {
-  
+  const IconArrow = '<svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.7687 14.9712L8.17426 15.5659L1.78526 8.81414L8.17426 2.06239L8.76542 2.65379L3.62579 8.07602L2.97925 8.75811L3.61994 9.44569L8.7687 14.9712Z" fill="white" stroke="white" stroke-width="2"></path></svg>';
+  const NextArrowIcon = `<a class="pagination__next" style="">${IconArrow}</a>`;
+  const PrevArrowIcon = `<a class="pagination__prev" style="">${IconArrow}</a>`;
 
   $(document).ready(function () {
     $("#userSlider").slick({
@@ -15,6 +17,24 @@
     $("#currentBookSlider").slick({
       slidesToShow: 1,
       adaptiveHeight: true,
+      prevArrow: `<a class="modal-slider__prev">${IconArrow}</a>`,
+      nextArrow: `<a class="modal-slider__next">${IconArrow}</a>`,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            arrows: false,
+            dots: true,
+          }
+        },
+      ]
     });
 
     // TODO: пагинацияоткрыть в модалке тотже контент
@@ -71,10 +91,6 @@
         }
       })
     });
-
-    const IconArrow = '<svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.7687 14.9712L8.17426 15.5659L1.78526 8.81414L8.17426 2.06239L8.76542 2.65379L3.62579 8.07602L2.97925 8.75811L3.61994 9.44569L8.7687 14.9712Z" fill="white" stroke="white" stroke-width="2"></path></svg>';
-    const NextArrowIcon = `<a class="pagination__next" style="">${IconArrow}</a>`;
-    const PrevArrowIcon = `<a class="pagination__prev" style="">${IconArrow}</a>`;
 
     if ($('.pagination')) {
       $('ul.pagination').append(NextArrowIcon);
