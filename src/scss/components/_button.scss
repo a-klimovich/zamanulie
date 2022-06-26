@@ -3,9 +3,10 @@
   display: inline-block;
   width: 245px;
   background: $green-2;
-  border: 2px solid #ffffff;
+  border: 2px solid $white;
   border-radius: 10px;
   cursor: pointer;
+  transition: all 0.356s;
 
   &--default {
     height: 54px;
@@ -14,12 +15,29 @@
     line-height: 20px;
     padding: 17px 0;
     text-align: center;
-    color: #ffffff;
+    color: $white;
 
     &:hover {
-      background: #FFFFFF;
+      background: $white;
       border: 2px solid $green-2;
       color: $green-2;
+    }
+  }
+
+  &--transparent {
+    height: 54px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 17px 0;
+    text-align: center;
+    background-color: transparent;
+    border-color: $green-2;
+    color: $green-2;
+
+    &:hover {
+      background-color: $green-2;
+      color: $white;
     }
   }
 }

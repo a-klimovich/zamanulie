@@ -30,6 +30,12 @@
         {
           breakpoint: 992,
           settings: {
+            
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
             arrows: false,
             dots: true,
           }

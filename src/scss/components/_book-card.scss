@@ -79,8 +79,13 @@
       background-size: 18px 18px;
       height: 20px;
       width: 20px;
-      bottom: 0;
+      bottom: 22px;
       right: 0;
+
+      @include rwd(767) {
+        bottom: 0px;
+      }
+
     }
 
     @include md {

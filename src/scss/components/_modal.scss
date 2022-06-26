@@ -40,28 +40,27 @@
     @include lg {
       text-align: left;
       padding: 22px 61px;
-      max-width: 1277px;
+      max-width: 90vw;
       max-height: 90vh;
-      overflow-y: hidden;
+      overflow-y: auto;
     }
   }
 
   .only-mobile {
     display: block;
-    @include lg {
+    @include rwd(1200) {
       display: none;
     }
   }
   .only-desk {
     display: none;
-    @include lg {
+    @include rwd(1200) {
       display: block;
     }
   }
 
   .modal-content__grid {
     display: grid;
-    align-items: stretch;
     justify-items: center;
 
     .book-content {
@@ -71,13 +70,20 @@
       justify-content: space-between;
       grid-row: 2;
       
-      &__text {
-        overflow-y: hidden;
-        max-height: calc(90vh - 200px);
+      .text-preview {
+        margin-bottom: 20px;
+        padding: 0 10px;
       }
 
-      @include lg {
+      @include rwd(1200) {
         grid-row: 1;
+        justify-content: flex-start;
+
+        .text-preview {
+          max-height: 63vh;
+          overflow-y: auto;
+          margin-bottom: auto;
+        }
       }
     }
 
@@ -86,6 +92,7 @@
       display: flex;
       align-items: center;
       max-width: 300px;
+      margin-bottom: 25px;
       
       @include md {
         max-width: 629px;
@@ -93,6 +100,10 @@
 
       @include lg {
         max-width: 658px;
+      }
+
+      @include rwd(1200) {
+        margin-bottom: 0;
       }
 
       .modal-slider__prev, .modal-slider__next {
@@ -108,8 +119,8 @@
 
         @include md {
           display: flex;
-          width: 21px;
-          height: 20px;
+          min-width: 33px;
+          min-height: 33px;
         }
 
         @include lg {
@@ -143,10 +154,45 @@
       }
     }
 
-    @include lg {
+    .slick-dots {
+      bottom: -16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      li {
+        width: fit-content;
+        height: fit-content;
+        padding: 2px;
+        border-radius: 50%;
+        border: 2px solid $green-2;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+          background-color: $green-2;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          padding: 0;
+        }
+
+        &.slick-active button {
+          background-color: $green-4;
+        }
+      }
+    }
+
+    @include rwd(1200) {
       grid-template-columns: 1fr 1fr;
       column-gap: 15px;
     }
+  }
+
+  .buy-book-link {
+    background: $white;
   }
 
   &-close {
