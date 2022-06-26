@@ -126,6 +126,11 @@ a {
   clip: rect(0 0 0 0);
 }
 
+.anchor {
+  position: absolute;
+  bottom: 71px;
+}
+
 .container {
   padding: 0 10px;
   margin-left: auto;

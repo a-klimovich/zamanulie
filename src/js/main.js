@@ -91,6 +91,13 @@
     headerDecor.toggleClass("is-hidden");
   });
 
+  $('a[href*="#"]').on('click', function() {
+    $('html, body').animate({
+      scrollTop: $($.attr(this, 'href')).offset().top
+    }, 400);
+    return false;
+  });
+
   // hede show menu on scroll
   $(window).scroll(function () {
     const scrolled = $(window).scrollTop();
