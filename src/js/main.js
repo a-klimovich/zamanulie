@@ -8,9 +8,9 @@
       slidesToShow: 1,
       adaptiveHeight: true,
       dots: true,
-      // infinite: true,
-      // autoplay: true,
-      // autoplaySpeed: 4000,
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 4000,
       arrows: false,
     });
 
@@ -25,16 +25,16 @@
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-          }
+          },
         },
         {
           breakpoint: 768,
           settings: {
             arrows: false,
             dots: true,
-          }
+          },
         },
-      ]
+      ],
     });
 
     $("#bookCarousel").slick({
@@ -43,16 +43,12 @@
       adaptiveHeight: true,
       infinite: false,
       arrows: true,
-      appendArrows: $('.pagination'),
+      appendArrows: $(".pagination"),
       nextArrow: $NextArrow,
       prevArrow: $PrevArrow,
       dots: true,
-      appendDots: $('.pagination-dots'),
-      customPaging : function(slider, i) {
-        var thumb = $(slider.$slides[i]).data();
-    
-        return `<a class='pagination--slick-dot'>${(i + 1)}</a>`;
-      },
+      appendDots: $(".pagination-dots"),
+      customPaging: (slider, i) => (`<a class='pagination--slick-dot'>${i + 1}</a>`),
       responsive: [
         {
           breakpoint: 1200,
@@ -60,24 +56,24 @@
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true
-          }
+            dots: true,
+          },
         },
         {
           breakpoint: 992,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2
-          }
+            slidesToScroll: 2,
+          },
         },
         {
           breakpoint: 640,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
+            slidesToScroll: 1,
+          },
+        },
+      ],
     });
   });
 
@@ -89,10 +85,10 @@
   let scrollPrev = 0;
 
   // open nav
-  burgerBtn.on('click', () => {
-    nav.toggleClass('active');
-    burgerBtn.toggleClass('burger--active');
-    headerDecor.toggleClass('is-hidden');
+  burgerBtn.on("click", () => {
+    nav.toggleClass("active");
+    burgerBtn.toggleClass("burger--active");
+    headerDecor.toggleClass("is-hidden");
   });
 
   // hede show menu on scroll
@@ -105,7 +101,7 @@
     } else {
       header.removeClass("out");
     }
-    
+
     if (scrolled <= 10) {
       header.removeClass("scroll");
     }
