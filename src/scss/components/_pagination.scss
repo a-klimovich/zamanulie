@@ -33,10 +33,28 @@
     }
   }
 
-  .pagination--slick-dot.active {
+  .pagination-dots {
+    .slick-dots {
+      position: static;
+      display: flex;
+
+      li {
+        width: auto;
+        height: auto;
+        display: block;
+        position: static;
+        margin: 0;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  li.slick-active {
     border-color: #FFFFFF;
     background-color: #FFFFFF;
-    color: #2AA090;
+    a {
+      color: #2AA090;
+    }
   }
 
   & button:hover:not(.active), & a:hover:not(.active) {

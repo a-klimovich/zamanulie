@@ -1,7 +1,7 @@
 (function () {
-  const IconArrow = '<svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.7687 14.9712L8.17426 15.5659L1.78526 8.81414L8.17426 2.06239L8.76542 2.65379L3.62579 8.07602L2.97925 8.75811L3.61994 9.44569L8.7687 14.9712Z" fill="white" stroke="white" stroke-width="2"></path></svg>';
-  const NextArrowIcon = `<a class="pagination__next" style="">${IconArrow}</a>`;
-  const PrevArrowIcon = `<a class="pagination__prev" style="">${IconArrow}</a>`;
+  const $IconArrow = '<svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.7687 14.9712L8.17426 15.5659L1.78526 8.81414L8.17426 2.06239L8.76542 2.65379L3.62579 8.07602L2.97925 8.75811L3.61994 9.44569L8.7687 14.9712Z" fill="white" stroke="white" stroke-width="2"></path></svg>';
+  const $NextArrow = `<a class="pagination__next" style="">${$IconArrow}</a>`;
+  const $PrevArrow = `<a class="pagination__prev" style="">${$IconArrow}</a>`;
 
   $(document).ready(function () {
     $("#userSlider").slick({
@@ -17,20 +17,14 @@
     $("#currentBookSlider").slick({
       slidesToShow: 1,
       adaptiveHeight: true,
-      prevArrow: `<a class="modal-slider__prev">${IconArrow}</a>`,
-      nextArrow: `<a class="modal-slider__next">${IconArrow}</a>`,
+      prevArrow: `<a class="modal-slider__prev">${$IconArrow}</a>`,
+      nextArrow: `<a class="modal-slider__next">${$IconArrow}</a>`,
       responsive: [
         {
           breakpoint: 1200,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 992,
-          settings: {
-            
           }
         },
         {
@@ -48,12 +42,17 @@
       slidesToShow: 4,
       slidesToScroll: 4,
       adaptiveHeight: true,
-      dots: true,
       infinite: false,
-      arrows: false,
-      customPaging: function (slider, i) {
-        const $elem = $('.pagination');
-        $elem.children().eq(-1).before(`<a data-current=${i} class="pagination--slick-dot">${i + 1}</a>`);
+      arrows: true,
+      appendArrows: $('.pagination'),
+      nextArrow: $NextArrow,
+      prevArrow: $PrevArrow,
+      dots: true,
+      appendDots: $('.pagination-dots'),
+      customPaging : function(slider, i) {
+        var thumb = $(slider.$slides[i]).data();
+    
+        return `<a class='pagination--slick-dot'>${(i + 1)}</a>`;
       },
       responsive: [
         {
@@ -82,34 +81,34 @@
       ]
     });
 
-    $('.pagination--slick-dot').on('click', (e) => {
-      return $('#bookCarousel').slick('slickGoTo', e.target.dataset.current);
-    })
+    // $('.pagination--slick-dot').on('click', (e) => {
+    //   return $('#bookCarousel').slick('slickGoTo', e.target.dataset.current);
+    // })
 
-    $('#bookCarousel').on('afterChange', function(event, slick, currentSlide, nextSlide){
-      $('.pagination--slick-dot').each(function() {
-        $(this).removeClass('active')
-      })
+    // $('#bookCarousel').on('afterChange', function(event, slick, currentSlide, nextSlide){
+    //   $('.pagination--slick-dot').each(function() {
+    //     $(this).removeClass('active')
+    //   })
       
-      $('.pagination--slick-dot').map((_, element) => {
-        if (Number(element.dataset.current) === currentSlide) {
-          $(element).addClass('active')
-        }
-      })
-    });
+    //   $('.pagination--slick-dot').map((_, element) => {
+    //     if (Number(element.dataset.current) === currentSlide) {
+    //       $(element).addClass('active')
+    //     }
+    //   })
+    // });
 
-    if ($('.pagination')) {
-      $('ul.pagination').append(NextArrowIcon);
-      $('ul.pagination').append(PrevArrowIcon);
+    // if ($('.pagination')) {
+    //   $('ul.pagination').append(NextArrowIcon);
+    //   $('ul.pagination').append(PrevArrowIcon);
     
-      $('.pagination__next').on('click', () => {
-        $("#bookCarousel").slick('slickNext')
-      })
+    //   $('.pagination__next').on('click', () => {
+    //     $("#bookCarousel").slick('slickNext')
+    //   })
     
-      $('.pagination__prev').on('click', () => {
-        $("#bookCarousel").slick('slickPrev')
-      })
-    }
+    //   $('.pagination__prev').on('click', () => {
+    //     $("#bookCarousel").slick('slickPrev')
+    //   })
+    // }
   });
 
   // HEADER
