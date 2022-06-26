@@ -37,7 +37,6 @@
       ]
     });
 
-    // TODO: пагинацияоткрыть в модалке тотже контент
     $("#bookCarousel").slick({
       slidesToShow: 4,
       slidesToScroll: 4,
@@ -80,35 +79,6 @@
         }
       ]
     });
-
-    // $('.pagination--slick-dot').on('click', (e) => {
-    //   return $('#bookCarousel').slick('slickGoTo', e.target.dataset.current);
-    // })
-
-    // $('#bookCarousel').on('afterChange', function(event, slick, currentSlide, nextSlide){
-    //   $('.pagination--slick-dot').each(function() {
-    //     $(this).removeClass('active')
-    //   })
-      
-    //   $('.pagination--slick-dot').map((_, element) => {
-    //     if (Number(element.dataset.current) === currentSlide) {
-    //       $(element).addClass('active')
-    //     }
-    //   })
-    // });
-
-    // if ($('.pagination')) {
-    //   $('ul.pagination').append(NextArrowIcon);
-    //   $('ul.pagination').append(PrevArrowIcon);
-    
-    //   $('.pagination__next').on('click', () => {
-    //     $("#bookCarousel").slick('slickNext')
-    //   })
-    
-    //   $('.pagination__prev').on('click', () => {
-    //     $("#bookCarousel").slick('slickPrev')
-    //   })
-    // }
   });
 
   // HEADER
