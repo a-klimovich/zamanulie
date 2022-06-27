@@ -1,4 +1,5 @@
 (function () {
+
   const $IconArrow = '<svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.7687 14.9712L8.17426 15.5659L1.78526 8.81414L8.17426 2.06239L8.76542 2.65379L3.62579 8.07602L2.97925 8.75811L3.61994 9.44569L8.7687 14.9712Z" fill="white" stroke="white" stroke-width="2"></path></svg>';
   const $NextArrow = `<a class="pagination__next" style="">${$IconArrow}</a>`;
   const $PrevArrow = `<a class="pagination__prev" style="">${$IconArrow}</a>`;
@@ -12,29 +13,6 @@
       autoplay: true,
       autoplaySpeed: 4000,
       arrows: false,
-    });
-
-    $("#currentBookSlider").slick({
-      slidesToShow: 1,
-      adaptiveHeight: true,
-      prevArrow: `<a class="modal-slider__prev">${$IconArrow}</a>`,
-      nextArrow: `<a class="modal-slider__next">${$IconArrow}</a>`,
-      responsive: [
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            dots: true,
-          },
-        },
-      ],
     });
 
     $("#bookCarousel").slick({
@@ -91,7 +69,7 @@
     headerDecor.toggleClass("is-hidden");
   });
 
-  $('a[href*="#"]').on('click', function() {
+  $('a[href*="#"]').on('click', function () {
     $('html, body').animate({
       scrollTop: $($.attr(this, 'href')).offset().top
     }, 400);
@@ -117,22 +95,64 @@
   });
 
   // MODAL
-  const modals = document.querySelectorAll("[data-modal]");
+  const modals = document.querySelectorAll(".book-card");
+  const modal = document.getElementById('modal-one');
+  const closeModal = document.querySelector('.modal-close')
+  const modalSlider = document.getElementById('currentBookSlider')
+
+  console.log(modalSlider)
 
   modals.forEach((trigger) => {
     trigger.addEventListener("click", function (event) {
-      event.preventDefault();
-      const modal = document.getElementById(trigger.dataset.modal);
-      const exits = modal.querySelectorAll(".modal-exit");
+      if (event.target.parentElement.dataset.modal === 'modal-one') {
 
-      modal.classList.add("open");
+        const descriptionBook = trigger.querySelector('.text__subtitle p').innerHTML
+        const descriptionModal = document.querySelector('.text-preview')
 
-      exits.forEach(function (exit) {
-        exit.addEventListener("click", function (event) {
-          event.preventDefault();
-          modal.classList.remove("open");
+        descriptionModal.innerHTML = descriptionBook
+
+        const bookImage = trigger.querySelectorAll('.thumbnail')
+        const modalImages = document.querySelector('#currentBookSlider')
+
+        for (let i = 0; i < bookImage.length; i++) {
+          let cloneEl = bookImage[i].cloneNode(true)
+          modalImages.appendChild(cloneEl)
+        }
+
+        $("#currentBookSlider").slick({
+          slidesToShow: 1,
+          adaptiveHeight: true,
+          prevArrow: `<a class="modal-slider__prev">${$IconArrow}</a>`,
+          nextArrow: `<a class="modal-slider__next">${$IconArrow}</a>`,
+          infinite: false,
+          responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: false,
+                dots: true,
+              },
+            },
+          ],
         });
-      });
+
+        modal.classList.add("open");
+      }
     });
   });
+  closeModal.addEventListener('click', function () {
+    modalSlider.classList.remove('slick-initialized')
+    modalSlider.classList.remove('slick-slider')
+    modalSlider.classList.remove('slick-dotted')
+    modalSlider.innerHTML = ''
+    modal.classList.remove('open')
+  })
 })();
+
