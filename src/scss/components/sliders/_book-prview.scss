@@ -1,0 +1,12 @@
+#bookCarousel {
+  display: flex;
+  margin-bottom: 25px;
+  max-width: 100vw;
+
+  .slick-list {
+    margin: 0 -5px;
+  }
+  .slick-slide > div {
+    padding: 0 5px;
+  }
+}
