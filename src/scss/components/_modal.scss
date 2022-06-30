@@ -77,7 +77,6 @@
 
       @include rwd(1200) {
         grid-row: 1;
-        justify-content: flex-start;
 
         .text-preview {
           max-height: 63vh;
@@ -204,9 +203,6 @@
     cursor: pointer;
 
     svg {
-      width: 15px;
-      height: 15px;
-
       @include md {
         width: 26px;
         height: 26px;
