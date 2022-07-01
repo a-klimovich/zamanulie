@@ -1,4 +1,11 @@
+#wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .pagination {
+  width: 300px;
   display: flex;
   justify-content: center;
   list-style: none;
@@ -9,7 +16,11 @@
     margin-right: 6px;
   }
 
-  button, a {
+  .centerSlide {
+    margin: 0 auto;
+  }
+
+  button, a.pagination--slick-dot {
     font-family: 'Century Gothic';
     width: 39px;
     height: 39px;
@@ -49,12 +60,10 @@
     }
   }
 
-  li.slick-active {
+  .slick-current .pagination--slick-dot {
     border-color: #FFFFFF;
     background-color: #FFFFFF;
-    a {
-      color: #2AA090;
-    }
+    color: #2AA090;
   }
 
   & button:hover:not(.active), & a:hover:not(.active) {

@@ -39,48 +39,82 @@
       arrows: false,
     });
 
+    let showSlideCount = 4;
+
     $("#bookCarousel").slick({
       slidesToShow: 4,
       slidesToScroll: 4,
-      lazyLoad: "progressive",
-      adaptiveHeight: true,
       infinite: false,
-      arrows: true,
-      appendArrows: $(".pagination"),
-      nextArrow: $NextArrow,
-      prevArrow: $PrevArrow,
-      speed: 0,
-      dots: true,
-      appendDots: $(".pagination-dots"),
-      customPaging: (slider, i) =>
-        `<a class='pagination--slick-dot'>${i + 1}</a>`,
-      responsive: [
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true,
-          },
-        },
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-          },
-        },
-        {
-          breakpoint: 640,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-      ],
+      arrows: false,
+      asNavFor: '#pagination',
+      // fade: true,
+      // speed: 0,
+      // lazyLoad: "progressive",
+      // adaptiveHeight: true,
+      // appendArrows: $(".pagination"),
+      // dots: true,
+      // appendDots: $(".pagination .slick-track"),
+      // customPaging: (slider, i) =>
+      //   `<a class='pagination--slick-dot'>${i + 1}</a>`,
+      // responsive: [
+      //   {
+      //     breakpoint: 1200,
+      //     settings: {
+      //       slidesToShow: 3,
+      //       slidesToScroll: 3,
+      //       // infinite: true,
+      //       // dots: true,
+      //     },
+      //   },
+      //   {
+      //     breakpoint: 992,
+      //     settings: {
+      //       slidesToShow: 2,
+      //       slidesToScroll: 2,
+      //     },
+      //   },
+      //   {
+      //     breakpoint: 640,
+      //     settings: {
+      //       slidesToShow: 1,
+      //       slidesToScroll: 1,
+      //     },
+      //   },
+      // ],
     });
+    
+    const bookSlideCount = $("#bookCarousel").slick('getSlick').slideCount / 4;
+    const $pagination = $('<div id="pagination" class="pagination"></div>');
+    const $wrap = $('#wrap');
 
+    console.log($("#bookCarousel").slick('getSlick'));
+
+    for (let index = 1; index <= bookSlideCount; index++) {
+      const nodePaginationElem = $(`<div class='centerSlide'><a class='pagination--slick-dot'>${index}</a></div>`)
+      $pagination.append(nodePaginationElem)
+    }
+    
+    $pagination.appendTo($wrap);
+    if ($('.pagination--slick-dot').length === bookSlideCount) {
+      $pagination.slick({
+        asNavFor: '#bookCarousel',
+        slidesToShow: bookSlideCount,
+        slidesToScroll: 1,
+        // infinite: false,
+        speed: 0,
+        nextArrow: $NextArrow,
+        prevArrow: $PrevArrow,
+        focusOnSelect: true
+      })
+    }
+
+    // $('#pagination').slick({
+    //   slidesToShow: 2,
+    //   slidesToScroll: 1,
+    //   asNavFor: '#bookCarousel',
+    //   nextArrow: $NextArrow,
+    //   prevArrow: $PrevArrow,
+    // })
     // $modalSlider.slick(sliderSettings);
   });
   
