@@ -46,7 +46,7 @@
       slidesToScroll: 4,
       infinite: false,
       arrows: false,
-      asNavFor: '#pagination',
+      // asNavFor: '#pagination',
       // fade: true,
       // speed: 0,
       // lazyLoad: "progressive",
@@ -56,38 +56,40 @@
       // appendDots: $(".pagination .slick-track"),
       // customPaging: (slider, i) =>
       //   `<a class='pagination--slick-dot'>${i + 1}</a>`,
-      // responsive: [
-      //   {
-      //     breakpoint: 1200,
-      //     settings: {
-      //       slidesToShow: 3,
-      //       slidesToScroll: 3,
-      //       // infinite: true,
-      //       // dots: true,
-      //     },
-      //   },
-      //   {
-      //     breakpoint: 992,
-      //     settings: {
-      //       slidesToShow: 2,
-      //       slidesToScroll: 2,
-      //     },
-      //   },
-      //   {
-      //     breakpoint: 640,
-      //     settings: {
-      //       slidesToShow: 1,
-      //       slidesToScroll: 1,
-      //     },
-      //   },
-      // ],
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            // infinite: true,
+            // dots: true,
+          },
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          },
+        },
+        {
+          breakpoint: 640,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    }).on('beforeChange', function(e, slick, currSlide, nextSlide) {
+      $('#pagination').slick('slickGoTo', nextSlide - 3);
     });
-    
-    const bookSlideCount = $("#bookCarousel").slick('getSlick').slideCount / 4;
+
+    const slideToShow = $("#bookCarousel").slick('getSlick').options.slidesToShow;
+    const bookSlideCount = $("#bookCarousel").slick('getSlick').slideCount / slideToShow;
+
     const $pagination = $('<div id="pagination" class="pagination"></div>');
     const $wrap = $('#wrap');
-
-    console.log($("#bookCarousel").slick('getSlick'));
 
     for (let index = 1; index <= bookSlideCount; index++) {
       const nodePaginationElem = $(`<div class='centerSlide'><a class='pagination--slick-dot'>${index}</a></div>`)
@@ -95,17 +97,19 @@
     }
     
     $pagination.appendTo($wrap);
+
     if ($('.pagination--slick-dot').length === bookSlideCount) {
       $pagination.slick({
-        asNavFor: '#bookCarousel',
-        slidesToShow: bookSlideCount,
+        slidesToShow: slideToShow === 1 ? 6 : bookSlideCount,
         slidesToScroll: 1,
-        // infinite: false,
+        arrow: true,
         speed: 0,
         nextArrow: $NextArrow,
         prevArrow: $PrevArrow,
         focusOnSelect: true
-      })
+      }).on('beforeChange', function(e, slick, currSlide, nextSlide) {
+        $('#bookCarousel').slick('slickGoTo', nextSlide * slideToShow);
+      });
     }
 
     // $('#pagination').slick({
