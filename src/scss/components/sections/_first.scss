@@ -81,10 +81,11 @@
   height: 100vh;
   min-height: 567px;
 
-  @media (max-width: 600px) {
-    background-color: rgba(255, 255, 255, 0.3);
-    background-blend-mode: overlay;
-  }
+  // TODO resolve unreadble subtitle text first section
+  // @media (max-width: 600px) {
+  //   background-color: rgba(255, 255, 255, 0.3);
+  //   background-blend-mode: overlay;
+  // }
 
   @include md {
     background-image: url("../assets/img/ferst-picture-md.jpg");

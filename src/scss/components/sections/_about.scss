@@ -17,7 +17,7 @@
       row-gap: 1.5rem;
     }
 
-    @include lg {
+    @include rwd(1250) {
       display: grid;
       align-items: center;
       grid-template-columns: 1.5fr 521px;
@@ -37,7 +37,7 @@
         margin-bottom: 30px;
       }
 
-      @include lg {
+      @include rwd(1250) {
         margin-bottom: 0;
       }
     }

@@ -40,6 +40,7 @@
     @include lg {
       text-align: left;
       padding: 22px 61px;
+      padding-right: 8px;
       max-width: 90vw;
       max-height: 90vh;
       overflow-y: auto;
@@ -60,15 +61,20 @@
   }
 
   .modal-content__grid {
-    display: grid;
-    justify-items: center;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+    
+    @include rwd(1200) {
+      flex-direction: row;
+    }
 
     .book-content {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      grid-row: 2;
+      height: 100%;
       
       .text-preview {
         margin-bottom: 20px;
@@ -76,7 +82,6 @@
       }
 
       @include rwd(1200) {
-        grid-row: 1;
 
         .text-preview {
           max-height: 63vh;
@@ -87,11 +92,12 @@
     }
 
     .slider-current-book {
-      grid-row: 1;
       display: flex;
       align-items: center;
       max-width: 300px;
       margin-bottom: 25px;
+      margin-left: auto;
+      margin-right: auto;
       
       @include md {
         max-width: 629px;
@@ -100,8 +106,9 @@
       @include lg {
         max-width: 658px;
       }
-
+      
       @include rwd(1200) {
+        height: 100%;
         margin-bottom: 0;
       }
 
@@ -182,11 +189,6 @@
           background-color: $green-4;
         }
       }
-    }
-
-    @include rwd(1200) {
-      grid-template-columns: 1fr 1fr;
-      column-gap: 15px;
     }
   }
 

@@ -1,6 +1,5 @@
 (function () {
-  const $IconArrow =
-    '<svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.7687 14.9712L8.17426 15.5659L1.78526 8.81414L8.17426 2.06239L8.76542 2.65379L3.62579 8.07602L2.97925 8.75811L3.61994 9.44569L8.7687 14.9712Z" fill="white" stroke="white" stroke-width="2"></path></svg>';
+  const $IconArrow ='<svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.7687 14.9712L8.17426 15.5659L1.78526 8.81414L8.17426 2.06239L8.76542 2.65379L3.62579 8.07602L2.97925 8.75811L3.61994 9.44569L8.7687 14.9712Z" fill="white" stroke="white" stroke-width="2"></path></svg>';
   const $NextArrow = `<a class="pagination__next" style="">${$IconArrow}</a>`;
   const $PrevArrow = `<a class="pagination__prev" style="">${$IconArrow}</a>`;
 
@@ -39,31 +38,25 @@
       arrows: false,
     });
 
-    let showSlideCount = 4;
-
     $("#bookCarousel").slick({
       slidesToShow: 4,
       slidesToScroll: 4,
       infinite: false,
       arrows: false,
-      // asNavFor: '#pagination',
-      // fade: true,
-      // speed: 0,
-      // lazyLoad: "progressive",
-      // adaptiveHeight: true,
-      // appendArrows: $(".pagination"),
-      // dots: true,
-      // appendDots: $(".pagination .slick-track"),
-      // customPaging: (slider, i) =>
-      //   `<a class='pagination--slick-dot'>${i + 1}</a>`,
+      speed: 0,
+      adaptiveHeight: false,
+      draggable: false,
+      swipe: false,
+      // swipeToSlide: false,
+      touchMove: false,
+      accessibility: false,
+      arrows: false,
       responsive: [
         {
           breakpoint: 1200,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
-            // infinite: true,
-            // dots: true,
           },
         },
         {
@@ -99,27 +92,34 @@
     $pagination.appendTo($wrap);
 
     if ($('.pagination--slick-dot').length === bookSlideCount) {
+      console.log('bookSlideCount', bookSlideCount);
+      console.log('slideToShow', slideToShow);
       $pagination.slick({
-        slidesToShow: slideToShow === 1 ? 6 : bookSlideCount,
+        slidesToShow: bookSlideCount >= 6 ? 6 : bookSlideCount,
         slidesToScroll: 1,
+        centerMode: false,
+        infinite: true,
         arrow: true,
         speed: 0,
+        appendArrows: $("#wrap"),
         nextArrow: $NextArrow,
         prevArrow: $PrevArrow,
-        focusOnSelect: true
+        focusOnSelect: true,
+        responsive: [
+          {
+            breakpoint: 640,
+            settings: {
+              slidesToShow: bookSlideCount >= 6 ? 6 - 1 : bookSlideCount,
+              centerPadding: '0px',
+              centerMode: true,
+              infinite: true,
+            },
+          },
+        ],
       }).on('beforeChange', function(e, slick, currSlide, nextSlide) {
         $('#bookCarousel').slick('slickGoTo', nextSlide * slideToShow);
       });
     }
-
-    // $('#pagination').slick({
-    //   slidesToShow: 2,
-    //   slidesToScroll: 1,
-    //   asNavFor: '#bookCarousel',
-    //   nextArrow: $NextArrow,
-    //   prevArrow: $PrevArrow,
-    // })
-    // $modalSlider.slick(sliderSettings);
   });
   
   // HEADER
