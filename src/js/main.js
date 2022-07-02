@@ -123,10 +123,10 @@
   });
   
   // HEADER
-  const burgerBtn = $(".burger");
-  const nav = $(".nav");
-  const header = $(".header");
-  const headerDecor = $(".header__decor");
+  const $burgerBtn = $(".burger");
+  const $nav = $(".nav");
+  const $header = $(".header");
+  const $headerDecor = $(".header__decor");
   let scrollPrev = 0;
 
   // hede show menu on scroll
@@ -134,24 +134,26 @@
     const scrolled = $(window).scrollTop();
 
     if (scrolled > 71 && scrolled > scrollPrev) {
-      header.addClass("out");
-      header.addClass("scroll");
+      $header.addClass("out");
+      $header.addClass("scroll");
+      $nav.removeClass("active");
+      $burgerBtn.removeClass("burger--active");
     } else {
-      header.removeClass("out");
+      $header.removeClass("out");
     }
 
     if (scrolled <= 10) {
-      header.removeClass("scroll");
+      $header.removeClass("scroll");
     }
 
     scrollPrev = scrolled;
   });
 
   // open nav
-  burgerBtn.on("click", () => {
-    nav.toggleClass("active");
-    burgerBtn.toggleClass("burger--active");
-    headerDecor.toggleClass("is-hidden");
+  $burgerBtn.on("click", () => {
+    $nav.toggleClass("active");
+    $burgerBtn.toggleClass("burger--active");
+    $headerDecor.toggleClass("is-hidden");
   });
 
   // animate scroll anchor link
