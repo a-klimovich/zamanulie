@@ -63,9 +63,10 @@
   .modal-content__grid {
     display: flex;
     flex-direction: column-reverse;
-    height: 100%;
+    height: auto;
     
     @include rwd(1200) {
+      height: 100%;
       flex-direction: row;
     }
 
@@ -89,6 +90,12 @@
           margin-bottom: auto;
         }
       }
+    }
+
+    .current-book-slider-wrapper {
+       @include rwd(1200) {
+        min-width: 43vw;
+       }
     }
 
     .slider-current-book {
