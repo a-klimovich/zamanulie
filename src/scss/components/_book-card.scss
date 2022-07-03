@@ -9,6 +9,9 @@
   max-width: 300px;
   margin: 0 auto;
   transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &.selected {
     background-color: #1b897a;
@@ -38,6 +41,10 @@
     margin-bottom: 7px;
     position: relative;
     cursor: pointer;
+
+    & a {
+      height: 100%;
+    }
 
     .status {
       position: absolute;
@@ -69,12 +76,12 @@
         left: 15px;
         transform: translate(-40%, 0%);
       }
-      
+
       @include rwd(1390) {
         left: 0;
         transform: translate(-50%, 0%);
       }
-      
+
       &--inprogres {
         background-color: #ff5c00;
         color: #ffffff;
@@ -104,8 +111,8 @@
       background-size: 18px 18px;
       height: 20px;
       width: 20px;
-      bottom: 22px;
-      right: 0;
+      bottom: 5px;
+      right: 5px;
 
       @include rwd(767) {
         bottom: 0px;
