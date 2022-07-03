@@ -79,7 +79,7 @@
     });
 
     const slideToShow = $("#bookCarousel").slick('getSlick').options.slidesToShow;
-    const bookSlideCount = $("#bookCarousel").slick('getSlick').slideCount / slideToShow;
+    const bookSlideCount = Math.ceil($("#bookCarousel").slick('getSlick').slideCount / slideToShow)
 
     const $pagination = $('<div id="pagination" class="pagination"></div>');
     const $wrap = $('#wrap');

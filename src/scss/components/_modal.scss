@@ -36,7 +36,7 @@
     flex-direction: column;
     padding: 10px 5px;
     text-align: center;
-    
+
     @include lg {
       text-align: left;
       padding: 22px 61px;
@@ -76,13 +76,14 @@
       align-items: center;
       justify-content: space-between;
       height: 100%;
-      
+
       .text-preview {
         margin-bottom: 20px;
         padding: 0 10px;
       }
 
       @include rwd(1200) {
+        width: 50%;
 
         .text-preview {
           max-height: 63vh;
@@ -105,7 +106,7 @@
       margin-bottom: 25px;
       margin-left: auto;
       margin-right: auto;
-      
+
       @include md {
         max-width: 629px;
       }
@@ -113,13 +114,14 @@
       @include lg {
         max-width: 658px;
       }
-      
+
       @include rwd(1200) {
         height: 100%;
         margin-bottom: 0;
       }
 
-      .modal-slider__prev, .modal-slider__next {
+      .modal-slider__prev,
+      .modal-slider__next {
         display: none;
         justify-content: center;
         align-items: center;
@@ -128,7 +130,7 @@
         margin: 0 10px;
 
         transition: background-color 0.3s;
-        border: 2px solid #2AA090;
+        border: 2px solid #2aa090;
 
         @include md {
           display: flex;
@@ -146,15 +148,15 @@
           height: 18px;
 
           path {
-            stroke: #2AA090;
+            stroke: #2aa090;
           }
-        
+
           path {
-            fill: #FFFFFF;
+            fill: #ffffff;
           }
         }
       }
-    
+
       .modal-slider__next {
         svg {
           transform: rotate(180deg);
