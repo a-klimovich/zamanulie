@@ -183,22 +183,25 @@
       nodeToClear.removeChild(nodeToClear.firstChild);
     }
   };
-
+  
   $bookCards.forEach((trigger) => {
     trigger.addEventListener("click", function (event) {
       if (event.target.parentElement.dataset.modal === "modal-one") {
-        $modal.addClass("open");
         $('body').css('overflow', 'hidden');
-
+        const currentBookLink = $(this)[0].dataset.link;
+       
         const $currentCardText = $(this).find(".text__subtitle").html();
         const $currentImages = $(this).find(".book-card__thumbnail-wrap").html();
 
+        
         clearNode(".text-preview");
         clearNode("#currentBookSlider");
-
+        
         $($currentCardText).appendTo($modalPreviewText);
         $($currentImages).appendTo($modalSlider);
+        $('#currentBookLink').attr('href', currentBookLink)
 
+        $modal.addClass("open");
         $modalSlider.slick(sliderSettings);
       }
     });
