@@ -1,5 +1,5 @@
 (function () {
-  const $IconArrow ='<svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.7687 14.9712L8.17426 15.5659L1.78526 8.81414L8.17426 2.06239L8.76542 2.65379L3.62579 8.07602L2.97925 8.75811L3.61994 9.44569L8.7687 14.9712Z" fill="white" stroke="white" stroke-width="2"></path></svg>';
+  const $IconArrow = '<svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.7687 14.9712L8.17426 15.5659L1.78526 8.81414L8.17426 2.06239L8.76542 2.65379L3.62579 8.07602L2.97925 8.75811L3.61994 9.44569L8.7687 14.9712Z" fill="white" stroke="white" stroke-width="2"></path></svg>';
   const $NextArrow = `<a class="pagination__next" style="">${$IconArrow}</a>`;
   const $PrevArrow = `<a class="pagination__prev" style="">${$IconArrow}</a>`;
 
@@ -74,54 +74,55 @@
           },
         },
       ],
-    }).on('beforeChange', function(e, slick, currSlide, nextSlide) {
+    }).on('beforeChange', function (e, slick, currSlide, nextSlide) {
       $('#pagination').slick('slickGoTo', nextSlide - 3);
     });
 
     const slideToShow = $("#bookCarousel").slick('getSlick').options.slidesToShow;
     const bookSlideCount = Math.ceil($("#bookCarousel").slick('getSlick').slideCount / slideToShow)
-
-    const $pagination = $('<div id="pagination" class="pagination"></div>');
-    const $wrap = $('#wrap');
-
-    for (let index = 1; index <= bookSlideCount; index++) {
-      const nodePaginationElem = $(`<div class='centerSlide'><a class='pagination--slick-dot'>${index}</a></div>`)
-      $pagination.append(nodePaginationElem)
-    }
     
-    $pagination.appendTo($wrap);
+    if (bookSlideCount > 1) {
+      const $pagination = $('<div id="pagination" class="pagination"></div>');
+      const $wrap = $('#wrap');
 
-    if ($('.pagination--slick-dot').length === bookSlideCount) {
-      console.log('bookSlideCount', bookSlideCount);
-      console.log('slideToShow', slideToShow);
-      $pagination.slick({
-        slidesToShow: bookSlideCount >= 6 ? 6 : bookSlideCount,
-        slidesToScroll: 1,
-        centerMode: false,
-        infinite: true,
-        arrow: true,
-        speed: 0,
-        appendArrows: $("#wrap"),
-        nextArrow: $NextArrow,
-        prevArrow: $PrevArrow,
-        focusOnSelect: true,
-        responsive: [
-          {
-            breakpoint: 640,
-            settings: {
-              slidesToShow: bookSlideCount >= 6 ? 6 - 1 : bookSlideCount,
-              centerPadding: '0px',
-              centerMode: true,
-              infinite: true,
+      for (let index = 1; index <= bookSlideCount; index++) {
+        const nodePaginationElem = $(`<div class='centerSlide'><a class='pagination--slick-dot'>${index}</a></div>`)
+        $pagination.append(nodePaginationElem)
+      }
+
+      $pagination.appendTo($wrap);
+
+      if ($('.pagination--slick-dot').length === bookSlideCount) {
+        $pagination.slick({
+          slidesToShow: bookSlideCount >= 6 ? 6 : bookSlideCount,
+          slidesToScroll: 1,
+          centerMode: false,
+          infinite: true,
+          arrow: true,
+          speed: 0,
+          appendArrows: $("#wrap"),
+          nextArrow: $NextArrow,
+          prevArrow: $PrevArrow,
+          focusOnSelect: true,
+          responsive: [
+            {
+              breakpoint: 640,
+              settings: {
+                slidesToShow: bookSlideCount >= 6 ? 6 - 1 : bookSlideCount,
+                centerPadding: '0px',
+                centerMode: true,
+                infinite: true,
+              },
             },
-          },
-        ],
-      }).on('beforeChange', function(e, slick, currSlide, nextSlide) {
-        $('#bookCarousel').slick('slickGoTo', nextSlide * slideToShow);
-      });
+          ],
+        }).on('beforeChange', function (e, slick, currSlide, nextSlide) {
+          $('#bookCarousel').slick('slickGoTo', nextSlide * slideToShow);
+        });
+      }
     }
+
   });
-  
+
   // HEADER
   const $burgerBtn = $(".burger");
   const $nav = $(".nav");
